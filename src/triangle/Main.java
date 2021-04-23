@@ -31,7 +31,7 @@ public class Main {
         catch(ArithmeticException e0){
 //            e0.printStackTrace();
             System.err.println("Giá trí của cạnh nhập phải khác 0");
-            System.err.println("và tổng hai cạnh phải lớn hơn cạnh còn lại");
+
         }
         catch(InputMismatchException e){
             System.err.println("Giá trị vừa nhập không thuộc số nguyên");
@@ -40,6 +40,10 @@ public class Main {
 //            e1.printStackTrace();
             System.err.println("Giá trị nhập là số nguyên dương âm");
 
+        }
+        catch(Error e4){
+//            System.err.println("Tổng hai cạnh phải lớn hơn cạnh còn lại");
+            System.err.println(e4.getMessage());
         }
 
         catch (Exception e2){
@@ -53,10 +57,10 @@ public class Main {
     }
 
     private static void checkLength(int canhA, int canhB, int canhC){
-        int x=1;
-        if (canhA+ canhB <=canhC) x=0;
-        if (canhB+ canhC <=canhA) x=0;
-        if (canhC+ canhA <=canhB) x=0;
-        System.out.println(canhA/x);
+//        int x=1;
+        if (canhA+ canhB <=canhC) throw  new Error("Cạnh C không đủ độ dài");
+        if (canhB+ canhC <=canhA)  throw   new Error("Cạnh A không độ dài");
+        if (canhC+ canhA <=canhB) throw    new Error("Cạnh B không đủ độ dài");
+//        System.out.println(canhA/x);
     }
 }
